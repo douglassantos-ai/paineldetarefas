@@ -72,7 +72,7 @@ mark { background: var(--highlight); color: inherit; padding: 0 .08em; border-ra
 .active-search input::placeholder { color: #cbd5e1; }
 .active-search input:focus { border-color: rgba(255,255,255,.48); box-shadow: 0 0 0 3px rgba(255,255,255,.10); }
 
-.board { display: grid; grid-template-columns: repeat(4, minmax(250px, 1fr)); gap: 14px; padding: 18px 24px 24px; min-height: calc(100vh - 88px); overflow-x: auto; align-items: start; }
+.board { display: grid; grid-template-columns: repeat(3, minmax(440px, 1fr)) minmax(220px, 260px); gap: 14px; padding: 18px 24px 24px; min-height: calc(100vh - 88px); overflow-x: auto; align-items: start; }
 .column { min-width: 250px; background: rgba(255,255,255,.7); border: 1px solid #d9dee7; border-radius: 16px; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 8px 18px rgba(17,24,39,.06); }
 .column-header { min-height: 70px; padding: 14px 15px; display: flex; align-items: center; justify-content: space-between; gap: 12px; background: #fff; border-bottom: 1px solid var(--line); }
 .column-header h2 { margin: 0; font-size: 15px; letter-spacing: .55px; }
@@ -80,7 +80,8 @@ mark { background: var(--highlight); color: inherit; padding: 0 .08em; border-ra
 .finalize-column .column-header { background: #f8fafc; }
 .add-button { width: 38px; height: 38px; border: 0; border-radius: 11px; background: var(--dark); color: #fff; font-size: 26px; line-height: 1; box-shadow: 0 6px 14px rgba(17,24,39,.22); transition: transform .15s ease, background .15s ease; }
 .add-button:hover { transform: translateY(-1px); background: #273449; }
-.dropzone { flex: 1; min-height: 340px; padding: 13px; display: flex; flex-direction: column; gap: 11px; transition: background .15s ease, outline-color .15s ease; }
+.dropzone { flex: 1; min-height: 340px; padding: 13px; display: grid; grid-template-columns: repeat(2, 1fr); align-content: start; gap: 11px; transition: background .15s ease, outline-color .15s ease; }
+.archive-dropzone { display: flex; flex-direction: column; }
 .dropzone.drag-over { background: rgba(37,99,235,.08); outline: 2px dashed rgba(37,99,235,.45); outline-offset: -7px; }
 .dropzone:empty::after { content: "Arraste uma tarefa para cá"; min-height: 86px; display: grid; place-items: center; text-align: center; color: #9aa3b2; border: 1px dashed #c9d0db; border-radius: 12px; font-size: 12px; padding: 14px; }
 .dropzone.search-empty::after { content: "Nenhuma tarefa corresponde à pesquisa"; }
@@ -284,10 +285,10 @@ input:focus, textarea:focus, select:focus, .rich-editor:focus { border-color: #7
 .calendar-task-item[data-priority="vermelho"] { background: var(--red); border-left-color: var(--red-strong); color: #7f1d1d; }
 
 @media (min-width: 1500px) {
-  .board, .calendar-view { grid-template-columns: repeat(4, minmax(290px, 1fr)); max-width: 1900px; margin: 0 auto; }
+  .board, .calendar-view { grid-template-columns: repeat(3, minmax(480px, 1fr)) minmax(240px, 280px); max-width: 2600px; margin: 0 auto; }
 }
 @media (max-width: 1200px) {
-  .board { grid-template-columns: repeat(4, minmax(280px, 1fr)); }
+  .board { grid-template-columns: repeat(3, minmax(420px, 1fr)) minmax(200px, 240px); }
   .header-actions { min-width: 440px; }
 }
 @media (max-width: 920px) {
@@ -309,7 +310,7 @@ input:focus, textarea:focus, select:focus, .rich-editor:focus { border-color: #7
   .task-card { cursor: default; }
   .column { display: none; min-width: 0; }
   .column.active-mobile { display: flex; }
-  .dropzone { min-height: 250px; }
+  .dropzone { min-height: 250px; display: flex; flex-direction: column; }
   .form-row { grid-template-columns: 1fr; gap: 0; }
   .modal { padding: 10px; }
   .modal-card { padding: 21px 17px; width: 100%; max-height: calc(100vh - 20px); }
